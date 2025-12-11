@@ -1,0 +1,151 @@
+$primary: #3b82f6;
+$success: #10b981;
+$warning: #f59e0b;
+$dark: #1e293b;
+$border: #e2e8f0;
+
+.instructor-panel {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    .panel-header {
+        margin-bottom: 40px;
+        h1 {
+            color: $dark;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #64748b;
+        }
+    }
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid $border;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+
+    h3 {
+        font-size: 0.9rem;
+        color: #64748b;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: $dark;
+        margin: 0;
+    }
+
+    &--active .stat-number {
+        color: $primary;
+    }
+    &--income .stat-number {
+        color: $success;
+    }
+}
+
+/* --- TABLO TASARIMI --- */
+.lessons-container {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid $border;
+    padding: 25px;
+
+    h2 {
+        margin-bottom: 20px;
+        color: $dark;
+    }
+}
+
+.lessons-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        text-align: left;
+        padding: 15px;
+        color: #64748b;
+        border-bottom: 2px solid $border;
+        font-size: 0.9rem;
+    }
+    td {
+        padding: 15px;
+        border-bottom: 1px solid $border;
+        color: #334155;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+    tr:hover {
+        background-color: #f8fafc;
+    }
+}
+
+.student-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    .avatar {
+        font-size: 1.2rem;
+    }
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    &.status-matched {
+        background-color: #fef3c7;
+        color: #d97706;
+    } // Sarı
+    &.status-completed {
+        background-color: #dcfce7;
+        color: #15803d;
+    } // Yeşil
+}
+
+.btn-complete {
+    background-color: $success;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+
+    &:hover {
+        background-color: darken($success, 10%);
+    }
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+.text-muted {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-style: italic;
+}

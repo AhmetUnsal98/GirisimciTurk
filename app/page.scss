@@ -1,0 +1,215 @@
+// Değişkenler
+$primary-color: #2563eb;
+$secondary-color: #4f46e5;
+$text-dark: #0f172a;
+$text-light: #64748b;
+$bg-white: #ffffff;
+
+.landing-page {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $bg-white;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+}
+
+.ambient-light {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.3;
+    z-index: 0;
+
+    &.light-blue {
+        background-color: $primary-color;
+        top: -100px;
+        left: -100px;
+    }
+
+    &.light-purple {
+        background-color: $secondary-color;
+        bottom: -100px;
+        right: -100px;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    background-color: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 999px;
+    color: $primary-color;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+
+    .dot-container {
+        position: relative;
+        display: flex;
+        width: 8px;
+        height: 8px;
+        margin-right: 10px;
+    }
+
+    .dot {
+        position: relative;
+        display: inline-flex;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $primary-color;
+    }
+
+    .ping {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: $primary-color;
+        opacity: 0.75;
+        animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+}
+
+@keyframes ping {
+    75%,
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: $text-dark;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+
+    @media (max-width: 768px) {
+        font-size: 2.5rem;
+    }
+
+    .gradient-text {
+        background: linear-gradient(to right, $primary-color, $secondary-color);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: $text-light;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    strong {
+        color: $text-dark;
+        font-weight: 600;
+    }
+}
+
+.cta-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 60px;
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+    }
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+    &.btn-primary {
+        background-color: $primary-color;
+        color: white;
+        box-shadow: 0 10px 20px -10px rgba($primary-color, 0.5);
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+            transform: translateY(-2px);
+        }
+
+        .arrow {
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+
+        &:hover .arrow {
+            transform: translateX(4px);
+        }
+    }
+
+    &.btn-outline {
+        background-color: white;
+        color: #475569;
+        border: 1px solid #e2e8f0;
+
+        &:hover {
+            border-color: $primary-color;
+            color: $primary-color;
+            background-color: #f8fafc;
+        }
+    }
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #e2e8f0;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .stat-item {
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: $text-dark;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: $text-light;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    }
+}

@@ -1,0 +1,156 @@
+$primary: #3b82f6;
+$dark: #1e293b;
+$border: #e2e8f0;
+
+.my-courses-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    .page-header {
+        margin-bottom: 40px;
+        border-bottom: 1px solid $border;
+        padding-bottom: 20px;
+
+        h1 {
+            font-size: 2rem;
+            color: $dark;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #64748b;
+        }
+    }
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* --- İZLEME KARTI TASARIMI --- */
+.course-card-watch {
+    border: 1px solid $border;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-image-placeholder {
+        height: 160px;
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 3rem;
+        opacity: 0.9;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+        color: $dark;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+    .card-instructor {
+        font-size: 0.85rem;
+        color: #64748b;
+        margin-bottom: 20px;
+    }
+
+    .progress-container {
+        width: 100%;
+        height: 6px;
+        background: #e2e8f0;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 5px;
+    }
+
+    .progress-bar {
+        height: 100%;
+        background: $primary;
+        border-radius: 3px;
+    }
+
+    .progress-text {
+        display: block;
+        font-size: 0.75rem;
+        color: #64748b;
+        text-align: right;
+        margin-bottom: 15px;
+    }
+
+    .btn-watch {
+        width: 100%;
+        padding: 10px;
+        background: $dark;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+
+        &:hover {
+            background: lighten($dark, 10%);
+        }
+    }
+}
+
+/* --- BOŞ DURUM (EMPTY STATE) --- */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 2px dashed $border;
+
+    .empty-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+    }
+    h2 {
+        color: $dark;
+        margin-bottom: 10px;
+    }
+    p {
+        color: #64748b;
+        margin-bottom: 30px;
+    }
+
+    .btn-browse {
+        display: inline-block;
+        padding: 12px 24px;
+        background: $primary;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.2s;
+
+        &:hover {
+            background: darken($primary, 10%);
+        }
+    }
+}
+
+.loading-state {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2rem;
+    color: #94a3b8;
+}
