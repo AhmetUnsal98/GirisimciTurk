@@ -1,29 +1,19 @@
+// components/ProtectedLayout.js
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import React from "react";
+import { useAuthGuard } from "../hooks/AuthGuard/useAuthGuard"; // Hook'un yolu
 
 export default function ProtectedLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const router = useRouter();
-  const [isAuthorized, setIsAuthorized] = useState(false);
+  // Mantığı hook'tan çekiyoruz
+  const { isAuthenticated } = useAuthGuard();
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const user = localStorage.getItem("currentUser");
-
-      if (!user) {
-        router.push("/login");
-      } else {
-        setIsAuthorized(true);
-      }
-    }
-  }, [router]);
-
-  if (!isAuthorized) {
+  // Eğer doğrulanmadıysa Loading gösteriyoruz
+  if (!isAuthenticated) {
     return (
       <div
         style={{
@@ -38,5 +28,6 @@ export default function ProtectedLayout({
     );
   }
 
+  // Doğrulandıysa içeriği gösteriyoruz
   return <>{children}</>;
 }
